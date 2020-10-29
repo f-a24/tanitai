@@ -1,23 +1,26 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import useSettingFirebaseConfig from './hooks/useSettingFirebaseConfig';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
+import LoginForm from './components/LoginForm';
 
-export default function App() {
+const App: React.FC = () => {
+  const loggedIn = useSettingFirebaseConfig();
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
-    );
-  }
-}
+  if (!isLoadingComplete) return null;
+  if (!loggedIn) return <LoginForm />;
+  return (
+    <SafeAreaProvider>
+      <Navigation colorScheme={colorScheme} />
+      <StatusBar />
+    </SafeAreaProvider>
+  );
+};
+
+export default App;
