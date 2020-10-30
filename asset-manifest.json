@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/tanitai/static/js/app.44e63145.chunk.js",
-    "app.js.map": "/tanitai/static/js/app.44e63145.chunk.js.map",
+    "app.js": "/tanitai/static/js/app.98330912.chunk.js",
+    "app.js.map": "/tanitai/static/js/app.98330912.chunk.js.map",
     "runtime~app.js": "/tanitai/static/js/runtime~app.3504daa4.js",
     "runtime~app.js.map": "/tanitai/static/js/runtime~app.3504daa4.js.map",
-    "static/js/2.754d8fa1.chunk.js": "/tanitai/static/js/2.754d8fa1.chunk.js",
-    "static/js/2.754d8fa1.chunk.js.map": "/tanitai/static/js/2.754d8fa1.chunk.js.map",
+    "static/js/2.703655bc.chunk.js": "/tanitai/static/js/2.703655bc.chunk.js",
+    "static/js/2.703655bc.chunk.js.map": "/tanitai/static/js/2.703655bc.chunk.js.map",
     "fonts/AntDesign.ttf": "/tanitai/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/tanitai/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/tanitai/./fonts/Feather.ttf",
@@ -25,11 +25,11 @@
     "index.html": "/tanitai/index.html",
     "manifest.json": "/tanitai/manifest.json",
     "serve.json": "/tanitai/serve.json",
-    "static/js/2.754d8fa1.chunk.js.LICENSE.txt": "/tanitai/static/js/2.754d8fa1.chunk.js.LICENSE.txt"
+    "static/js/2.703655bc.chunk.js.LICENSE.txt": "/tanitai/static/js/2.703655bc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime~app.3504daa4.js",
-    "static/js/2.754d8fa1.chunk.js",
-    "static/js/app.44e63145.chunk.js"
+    "static/js/2.703655bc.chunk.js",
+    "static/js/app.98330912.chunk.js"
   ]
 }
