@@ -8,7 +8,8 @@ import {
   GestureResponderEvent,
   StyleSheet,
 } from 'react-native';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const LoadSpinner: React.FC<{
   loading: boolean;
