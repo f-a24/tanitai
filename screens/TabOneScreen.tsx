@@ -1,30 +1,37 @@
 import * as React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import firebase from 'firebase/app';
-import 'firebase/auth';
+import 'firebase/firestore';
 
-import EditScreenInfo from '../components/EditScreenInfo';
+import useMessagesCollection from '../hooks/useMessagesCollection';
 import { Text, View } from '../components/Themed';
 
-const TabOneScreen: React.FC = () => (
-  <View style={styles.container}>
-    <Text style={styles.title}>Tab One</Text>
-    <View
-      style={styles.separator}
-      lightColor="#eee"
-      darkColor="rgba(255,255,255,0.1)"
-    />
-    <EditScreenInfo path="/screens/TabOneScreen.js" />
-    <View style={styles.wrap}>
+const TabOneScreen: React.FC = () => {
+  const [msg, setMsg] = React.useState('');
+  const db = firebase.firestore().collection('messages');
+  const messages = useMessagesCollection(db);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.wrap}>
+        {messages.map((message, i) => (
+          <Text key={`${i}:${message}`}>{message}</Text>
+        ))}
+        <TextInput autoCorrect={false} value={msg} onChangeText={setMsg} />
+      </View>
       <TouchableOpacity
-        onPress={() => firebase.auth().signOut()}
+        onPress={() => {
+          db.add({ text: msg }).then(() => {
+            setMsg('');
+          });
+        }}
         style={styles.buttonStyle}
       >
-        <Text style={styles.textStyle}>ログアウト</Text>
+        <Text style={styles.textStyle}>送信</Text>
       </TouchableOpacity>
     </View>
-  </View>
-);
+  );
+};
 
 export default TabOneScreen;
 
@@ -38,27 +45,19 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
   wrap: {
     padding: 10,
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-    paddingBottom: 10,
-    paddingTop: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 16
   },
   buttonStyle: {
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
+    backgroundColor: '#ff8600',
+    borderRadius: 5
   },
 });

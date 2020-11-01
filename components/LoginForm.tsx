@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
+  Image,
   ActivityIndicator,
   GestureResponderEvent,
   StyleSheet,
@@ -54,11 +55,8 @@ const LoginForm: React.FC = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log('---THEN---');
-      })
+      .then()
       .catch(() => {
-        console.log('---CATCH---');
         firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
@@ -67,9 +65,13 @@ const LoginForm: React.FC = () => {
       });
   };
   return (
-    <View>
+    <View style={{justifyContent: 'center', height: '100%'}}>
+      <View style={{alignItems: 'center', justifyContent: 'center', paddingBottom: 32}}>
+        <Image source={require('../assets/images/logo.png')} style={{ width: 100, height: 100 }} />
+      </View> 
       <View style={styles.wrap}>
         <TextInput
+          style={styles.inputStyle}
           placeholder="user@gmail.com"
           autoCorrect={false}
           value={state.email}
@@ -78,6 +80,7 @@ const LoginForm: React.FC = () => {
       </View>
       <View style={styles.wrap}>
         <TextInput
+          style={styles.inputStyle}
           secureTextEntry
           placeholder="password"
           autoCorrect={false}
@@ -85,7 +88,6 @@ const LoginForm: React.FC = () => {
           onChangeText={(password) => setState({ ...state, password })}
         />
       </View>
-
       <View style={styles.wrap}>
         <LoadSpinner loading={state.loading} onButtonPress={onButtonPress} />
       </View>
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
     paddingBottom: 10,
@@ -107,20 +109,16 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
+    backgroundColor: '#ff8600',
+    borderRadius: 5
   },
   inputStyle: {
     color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
+    padding: 8,
     fontSize: 18,
-    lineHeight: 23,
-    height: 30,
     borderWidth: 1,
-    borderColor: '#333',
+    borderRadius: 5,
+    borderColor: '#ff8600',
   },
 });
 
