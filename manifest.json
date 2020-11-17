@@ -1,7 +1,7 @@
 {
   "background_color": "#ffffff",
   "display": "standalone",
-  "lang": "en",
+  "lang": "ja",
   "name": "tanitai",
   "short_name": "tanitai",
   "start_url": "/?utm_source=web_app_manifest",

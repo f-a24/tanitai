@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tanitai/precache-manifest.1da884ab64834569ee165d9f3752ff46.js"
+  "/tanitai/precache-manifest.bab7cd8f97e9e9256858195188cc5a1e.js"
 );
 
 workbox.skipWaiting();

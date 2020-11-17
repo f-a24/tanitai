@@ -68,7 +68,7 @@ self.__precacheManifest = [
     "url": "/tanitai/./fonts/SimpleLineIcons.ttf"
   },
   {
-    "revision": "ce5302dadd931f3cba06f444238b308f",
+    "revision": "a94afe2483522438fa4f9018618ad136",
     "url": "/tanitai/index.html"
   },
   {
@@ -100,7 +100,7 @@ self.__precacheManifest = [
     "url": "/tanitai/favicon.ico"
   },
   {
-    "revision": "5a2c898d406f80afb687123cdef32b8f",
+    "revision": "bf385d0d1f8b56be16337f9543414551",
     "url": "/tanitai/manifest.json"
   }
 ];
